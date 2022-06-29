@@ -1,0 +1,96 @@
+:root{
+  font-size: 62.5%;
+  --bg-color-rain:rgba(255, 255, 255, 0.849);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+main{
+  font-family: 'Roboto', sans-serif;
+  font-size: 12.6rem;
+  color: #323238;
+  display: flex;
+  border: red 1px solid;
+  justify-content: center;
+}
+
+.timer-container{
+  display: flex;
+  height: 100vh;
+  gap: 19.2rem;
+}
+.clock{
+  display: flex;
+}
+
+span{
+  display: flex;
+}
+
+.timer{
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+}
+
+.buttons-timer{
+  display: flex;
+  gap: 4.0rem;
+}
+
+.relax-buttons{
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3.2rem;
+  
+  align-content: center;
+  width: 33.8rem;
+
+}
+button{
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.tree:hover .background-tree{
+  fill: rgba(0, 146, 0, 0.89);
+}
+
+.tree:hover .color-tree{
+  fill: var(--bg-color-rain)
+}
+
+.rain:hover .background-rain{
+  fill: rgb(0, 65, 206)
+}
+
+.rain:hover .color-rain{
+  fill: var(--bg-color-rain);
+}
+
+.coffestation:hover .background-coffestation{
+  fill: rgba(49, 8, 8, 0.87);
+}
+
+.coffestation:hover .color-coffestation{
+  fill: var(--bg-color-rain);
+}
+
+.fireplace:hover .background-fireplace{
+  fill: rgba(255, 60, 0, 0.918)
+}
+
+.fireplace:hover .color-fireplace{
+  fill: var(--bg-color-rain);
+} 
