@@ -6,6 +6,7 @@ const displayMinutes = document.querySelector(".minutes")
 const displaySeconds = document.querySelector(".seconds")
 
 let minutes = Number(displayMinutes.textContent)
+let fiveMinutes = Number(displayMinutes.textContent)
 
 let timerTimeout
 
@@ -16,40 +17,36 @@ function updateTimerDisplay(minutes, seconds){
   displaySeconds.textContent = String(seconds).padStart(2, "0")
 }
 
+function resetFiveMinutes(){
+  fiveMinutes = minutes
+}
+
 function resetTimer (){
   updateTimerDisplay(minutes, 0)
   clearTimeout(timerTimeout)
+
 }
   
-function moreFiveMinutes(){
- displayMinutes.textContent = String(minutes++)
-}
-
-function lessFiveMinutes(){
- displayMinutes.textContent = String(--minutes)
-}
 
 function timer(){
-    let minutes = Number(displayMinutes.textContent)
-    let seconds = Number(displaySeconds.textContent)
-     if (seconds <= 0){
-     seconds = 3
-     displayMinutes.textContent = String(--minutes).padStart(2, "0")
+    let minutesTimer = Number(displayMinutes.textContent)
+    let secondsTimer = Number(displaySeconds.textContent)
+     if (secondsTimer <= 0){
+     secondsTimer = 10
+     displayMinutes.textContent = String(--minutesTimer).padStart(2, "0")
+     fiveMinutes--
    }
-     displaySeconds.textContent = String(--seconds).padStart(2, "0")  
+     displaySeconds.textContent = String(--secondsTimer).padStart(2, "0")  
 }
+
 
 function countdown() {
   timerTimeout = setTimeout(function(){ 
-    
-    let seconds = Number(displaySeconds.textContent)
-    let minutes = Number(displayMinutes.textContent)
     
     timer()
     
      if (minutes <= 0 && seconds <=0){
        resetTimer()
-       console.log("oi")
       return
      }
     countdown()
@@ -64,15 +61,21 @@ buttonPlay.addEventListener('click', function(){
 buttonStop.addEventListener('click', function(){
   clearTimeout(timerTimeout)
   updateTimerDisplay(minutes, 0)
+  resetFiveMinutes()
   console.log("pause")
 })
 
 buttonMoreMinutes.addEventListener('click', function(){
-  moreFiveMinutes()
-  console.log("mais")
+  fiveMinutes = fiveMinutes + 5
+  displayMinutes.textContent = String(fiveMinutes).padStart(2, "0")
+  console.log(displayMinutes.textContent)
 })
 
 buttonLessMinutes.addEventListener('click', function(){
-  lessFiveMinutes()
-  console.log("menos")
+  if (fiveMinutes <= 5){
+    resetTimer()
+  }else{
+    fiveMinutes = fiveMinutes - 5
+    displayMinutes.textContent = String(fiveMinutes).padStart(2, "0")
+  }
 })
