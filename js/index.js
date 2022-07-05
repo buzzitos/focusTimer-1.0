@@ -29,7 +29,7 @@ function timer(){
   let minutesTimer = Number(minutesDisplay.textContent)
   let secondsTimer = Number(secondsDisplay.textContent)
    if (secondsTimer <= 0){
-   secondsTimer = 10
+   secondsTimer = 5
    minutesDisplay.textContent = String(--minutesTimer).padStart(2, "0")
    fiveMinutes--
  }
@@ -38,10 +38,11 @@ function timer(){
 
 function countdown(){
   timerTimeout = setTimeout(function(){
- 
+    let countdownMinutes = Number(minutesDisplay.textContent)
+    let countdownSeconds = Number(secondsDisplay.textContent)
     timer()
-
-    if (minutes <= 0 && seconds <= 0){
+    
+    if (countdownMinutes <= 0 && countdownSeconds <= 0){
       resetTimer()
       return     
     }
