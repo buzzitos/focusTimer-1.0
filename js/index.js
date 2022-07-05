@@ -60,7 +60,7 @@ buttonPlay.addEventListener('click', function(){
 buttonStop.addEventListener('click', function(){
   clearTimeout(timerTimeout)
   updateTimerDisplay(minutes, 0)
-  fiveMinutes = minutes
+  resetTimer()
 })
 
 buttonMoreMinutes.addEventListener('click', function(){
