@@ -29,7 +29,7 @@ function timer(){
   let minutesTimer = Number(minutesDisplay.textContent)
   let secondsTimer = Number(secondsDisplay.textContent)
    if (secondsTimer <= 0){
-   secondsTimer = 5
+   secondsTimer = 60
    minutesDisplay.textContent = String(--minutesTimer).padStart(2, "0")
    fiveMinutes--
  }
