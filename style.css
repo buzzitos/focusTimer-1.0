@@ -1,6 +1,7 @@
 :root{
   font-size: 62.5%;
-  --bg-color-rain:rgba(255, 255, 255, 0.849);
+  --bg-color:rgb(255, 255, 255);
+  --bg-akatsuki: #A40000;
 }
 
 *{
@@ -15,7 +16,6 @@ main{
   font-size: 12.6rem;
   color: #323238;
   display: flex;
-  border: red 1px solid;
   justify-content: center;
 }
 
@@ -63,34 +63,15 @@ button{
   cursor: pointer;
 }
 
-.tree:hover .background-tree{
-  fill: rgba(0, 146, 0, 0.89);
+button:hover .akatsuki{
+  fill: var(--bg-akatsuki)
 }
 
-.tree:hover .color-tree{
-  fill: var(--bg-color-rain)
+button:hover .vila{
+  fill: var(--bg-color);
+  stroke: var(--bg-color);
 }
 
-.rain:hover .background-rain{
-  fill: rgb(0, 65, 206)
-}
 
-.rain:hover .color-rain{
-  fill: var(--bg-color-rain);
-}
 
-.coffestation:hover .background-coffestation{
-  fill: rgba(250, 235, 25, 0.87);
-}
 
-.coffestation:hover .color-coffestation{
-  fill: var(--bg-color-rain);
-}
-
-.fireplace:hover .background-fireplace{
-  fill: rgba(255, 60, 0, 0.918)
-}
-
-.fireplace:hover .color-fireplace{
-  fill: var(--bg-color-rain);
-} 

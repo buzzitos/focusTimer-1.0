@@ -8,16 +8,13 @@ import {
 } from "./elements.js"
 
 let timerTimeout
-
 let minutes = Number(minutesDisplay.textContent)
 let fiveMinutes = Number(minutesDisplay.textContent)
-
 
 function updateTimerDisplay(minutes, seconds){
   minutesDisplay.textContent = String(minutes).padStart(2, "0")
   secondsDisplay.textContent = String(seconds).padStart(2, "0")
 }
-
 
 function resetTimer(){
   updateTimerDisplay(minutes, 0)
@@ -29,7 +26,7 @@ function timer(){
   let minutesTimer = Number(minutesDisplay.textContent)
   let secondsTimer = Number(secondsDisplay.textContent)
    if (secondsTimer <= 0){
-   secondsTimer = 10
+   secondsTimer = 60
    minutesDisplay.textContent = String(--minutesTimer).padStart(2, "0")
    fiveMinutes--
  }
@@ -38,17 +35,16 @@ function timer(){
 
 function countdown(){
   timerTimeout = setTimeout(function(){
- 
+    let countdownMinutes = Number(minutesDisplay.textContent)
+    let countdownSeconds = Number(secondsDisplay.textContent)
     timer()
 
-    if (minutes <= 0 && seconds <= 0){
+    if (countdownMinutes <= 0 && countdownSeconds <= 0){
       resetTimer()
       return     
     }
-    
 
     countdown ()
-    
   },1000)
 }
 
@@ -58,9 +54,9 @@ buttonPlay.addEventListener('click', function(){
 })
 
 buttonStop.addEventListener('click', function(){
-  clearTimeout(timerTimeout)
-  updateTimerDisplay(minutes, 0)
-  resetFiveMinutes()
+  clearTimeout(timerTimeout);
+  updateTimerDisplay(minutes, 0);
+  resetTimer();
 })
 
 buttonMoreMinutes.addEventListener('click', function(){
